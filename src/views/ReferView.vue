@@ -3,19 +3,21 @@
   <main id="main">
     <section class="reference__cont">
       <TitleCont name1="Reference" name2="Book" />
-      <div class="reference__inner">
-        <div class="table">
-          <h3>HTML</h3>
-          <ul>
-            <li v-for="refer in refers" :key="refer.id">
-              <a :href="refer.link" target="_blank">
-                <span class="num">{{ refer.id }}</span>
-                <span class="title">{{ refer.title }}</span>
-                <span class="desc">{{ refer.desc2 }}</span>
-                <span class="use">{{ refer.use }}</span>
-              </a>
-            </li>
-          </ul>
+      <div class="container">
+        <div class="reference__inner">
+          <div class="table">
+            <h3>HTML</h3>
+            <ul>
+              <li v-for="refer in refers" :key="refer.id">
+                <a :href="refer.link" target="_blank">
+                  <span class="num">{{ refer.id }}</span>
+                  <span class="title">{{ refer.title }}</span>
+                  <span class="desc">{{ refer.desc2 }}</span>
+                  <span class="use">{{ refer.use }}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <ContactCont />
@@ -42,9 +44,7 @@ export default {
     const refers = ref([]);
 
     const Reference = () => {
-      fetch(
-        "https://webstoryboy.github.io/react5001/src/assets/json/refer.json"
-      )
+      fetch("https://jliliflora.github.io/react/src/assets/json/referhtml.json")
         .then((response) => response.json())
         .then((data) => {
           refers.value = data.data.htmlRefer;
