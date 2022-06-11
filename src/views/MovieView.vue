@@ -60,6 +60,7 @@
                 <img
                   :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
                   :alt="movie.title"
+                  @error="replaceByDefault"
                 />
                 <span class="title">{{ movie.title }}</span>
               </li>
@@ -79,6 +80,7 @@ import FooterCont from "@/components/FooterCont.vue";
 import TitleCont from "@/components/TitleCont.vue";
 import ContactCont from "@/components/ContactCont.vue";
 import { ref } from "vue";
+import img from "@/assets/img/default_img.jpg";
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -94,6 +96,12 @@ export default {
     ContactCont,
     Swiper,
     SwiperSlide,
+  },
+
+  methods: {
+    replaceByDefault(e) {
+      e.target.src = img;
+    },
   },
 
   setup() {
